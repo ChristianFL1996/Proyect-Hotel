@@ -9,13 +9,24 @@
       margin: 0;
       padding: 0;
     }
-    header {
-      background: url('https://ibb.co/vCCtrRPW') no-repeat center center;
-      background-size: cover;
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-    }
+   header {
+  /* He agregado un gradiente oscuro para que el texto blanco sea legible */
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+              url('https://files.catbox.moe/p97y87.jpg') no-repeat center center;
+  
+  background-size: cover;
+  color: white;
+  text-align: center;
+  
+  /* Usamos min-height para que se vea imponente en cualquier pantalla */
+  min-height: 80vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  padding: 20px;
+}
     nav {
       background: #333;
       padding: 10px;
@@ -114,4 +125,5 @@
 </body>
 
 </html>
+
 
