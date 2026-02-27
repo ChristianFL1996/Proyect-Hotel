@@ -24,10 +24,16 @@
       --verde-quetzal: #357e4e;
       --violeta:       #7f4eaa;
 
+      /* MODO CLARO - Fondo blanco */
       --crema:         #f5efe6;
+      --fondo:         #ffffff;
+      --fondo-seccion: #f9f6f0;
+      --fondo-oscuro:  #1a1208;
       --oscuro:        #1a1208;
       --oscuro-medio:  #2a1f0d;
       --texto-claro:   #f0e8d5;
+      --texto-oscuro:  #1a1208;
+      --texto-gris:    #5a4e3a;
 
       --fuente-titulo: 'Cinzel', serif;
       --fuente-elegante: 'Cormorant Garamond', serif;
@@ -54,15 +60,15 @@
 
     body {
       font-family: var(--fuente-cuerpo);
-      background-color: var(--oscuro);
-      color: var(--texto-claro);
-      overflow-x: hidden; /* Evita scroll horizontal no deseado */
+      background-color: #ffffff;   /* FONDO BLANCO */
+      color: var(--texto-oscuro);  /* Texto oscuro para que se lea sobre blanco */
+      overflow-x: hidden;
       cursor: default;
     }
 
     /* Scrollbar personalizada para Chrome/Edge */
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--oscuro); }
+    ::-webkit-scrollbar-track { background: #f0ece4; }
     ::-webkit-scrollbar-thumb { background: var(--dorado); border-radius: 3px; }
 
     /* =============================================
@@ -71,14 +77,14 @@
        luego se oculta con JavaScript
     ============================================= */
     #preloader {
-      position: fixed;        /* Fijo en pantalla, encima de todo */
-      inset: 0;               /* top:0, right:0, bottom:0, left:0 */
-      background: var(--oscuro);
+      position: fixed;
+      inset: 0;
+      background: #ffffff;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      z-index: 9999;          /* Número muy alto = encima de todo */
+      z-index: 9999;
       transition: opacity 0.8s ease, visibility 0.8s ease;
     }
     #preloader.oculto {
@@ -90,8 +96,8 @@
       height: 80px;
       border: 2px solid rgba(166,128,49,0.2);
       border-top-color: var(--dorado);
-      border-radius: 50%;      /* Círculo */
-      animation: girar 1s linear infinite; /* Gira sin parar */
+      border-radius: 50%;
+      animation: girar 1s linear infinite;
     }
     .loader-texto {
       font-family: var(--fuente-titulo);
@@ -120,13 +126,60 @@
       align-items: center;
       justify-content: space-between;
       transition: var(--transicion);
+      /* Sobre el hero (imagen oscura) el nav es transparente */
+      background: transparent;
     }
-    /* Clase que se agrega con JS cuando se hace scroll */
     nav.scrolled {
-      background: rgba(26, 18, 8, 0.97);
+      background: rgba(255, 255, 255, 0.97);  /* Blanco al hacer scroll */
       backdrop-filter: blur(10px);
       padding: 14px 60px;
       border-bottom: 1px solid rgba(166,128,49,0.2);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+    /* Links del nav: blancos sobre el hero oscuro */
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.72rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 400;
+      position: relative;
+      transition: var(--transicion);
+    }
+    /* Links del nav: oscuros cuando el fondo es blanco (al hacer scroll) */
+    nav.scrolled .nav-links a {
+      color: var(--texto-oscuro);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--dorado);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--dorado) !important; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-reserva {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.7) !important;
+      color: #ffffff !important;
+      padding: 8px 24px;
+      font-size: 0.65rem !important;
+      letter-spacing: 2px;
+      transition: var(--transicion) !important;
+    }
+    nav.scrolled .nav-reserva {
+      border: 1px solid var(--dorado) !important;
+      color: var(--dorado) !important;
+    }
+    .nav-reserva:hover {
+      background: var(--dorado) !important;
+      color: #ffffff !important;
+      border-color: var(--dorado) !important;
     }
 
     .nav-logo {
@@ -147,48 +200,10 @@
       text-transform: uppercase;
       line-height: 1.4;
     }
-
     .nav-links {
       display: flex;
       gap: 36px;
-      list-style: none; /* Quita los puntos de la lista */
-    }
-    .nav-links a {
-      color: var(--texto-claro);
-      text-decoration: none;
-      font-size: 0.72rem;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      font-weight: 400;
-      position: relative;
-      transition: var(--transicion);
-    }
-    /* Línea decorativa bajo cada link al pasar el mouse */
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--dorado);
-      transition: width 0.3s ease;
-    }
-    .nav-links a:hover { color: var(--dorado); }
-    .nav-links a:hover::after { width: 100%; }
-
-    .nav-reserva {
-      background: transparent;
-      border: 1px solid var(--dorado);
-      color: var(--dorado) !important;
-      padding: 8px 24px;
-      font-size: 0.65rem !important;
-      letter-spacing: 2px;
-      transition: var(--transicion) !important;
-    }
-    .nav-reserva:hover {
-      background: var(--dorado) !important;
-      color: var(--oscuro) !important;
+      list-style: none;
     }
 
     /* Menú hamburguesa para móviles - oculto por defecto */
@@ -395,7 +410,57 @@
       color: var(--dorado);
     }
 
-    /* Indicador de scroll animado */
+    /* Flechas del slider */
+    .slider-flecha {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 4;
+      background: rgba(166,128,49,0.2);
+      border: 1px solid rgba(166,128,49,0.5);
+      color: #ffffff;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: var(--transicion);
+      backdrop-filter: blur(4px);
+    }
+    .slider-flecha:hover {
+      background: var(--dorado);
+      border-color: var(--dorado);
+    }
+    .slider-flecha-izq { left: 30px; }
+    .slider-flecha-der { right: 30px; }
+
+    /* Indicador de número de slide */
+    .slider-contador {
+      position: absolute;
+      bottom: 40px;
+      left: 60px;
+      z-index: 3;
+      font-family: var(--fuente-titulo);
+      font-size: 0.6rem;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,0.6);
+    }
+    .slider-contador span { color: var(--dorado); font-size: 1.1rem; }
+
+    /* Barra de progreso del slider */
+    .slider-progreso {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: var(--dorado);
+      width: 0%;
+      z-index: 4;
+      transition: width 5s linear;
+    }
+    .slider-progreso.activo { width: 100%; }
     .scroll-indicador {
       position: absolute;
       bottom: 40px;
@@ -460,7 +525,7 @@
        Separador elegante tipo "awards strip"
     ============================================= */
     .franja-reconocimientos {
-      background: linear-gradient(135deg, var(--oscuro-medio), #1e1506);
+      background: linear-gradient(135deg, #f5f0e8, #faf7f2);
       border-top: 1px solid rgba(166,128,49,0.2);
       border-bottom: 1px solid rgba(166,128,49,0.2);
       padding: 20px 60px;
@@ -511,17 +576,15 @@
       display: block;
     }
 
-    /* Títulos de sección */
     .seccion-titulo {
       font-family: var(--fuente-titulo);
       font-size: clamp(2rem, 4vw, 3.5rem);
       font-weight: 400;
       letter-spacing: 3px;
       line-height: 1.1;
-      color: var(--crema);
+      color: var(--texto-oscuro);   /* Oscuro sobre fondo blanco */
     }
 
-    /* Línea dorada decorativa bajo títulos */
     .linea-dorada {
       width: 60px;
       height: 2px;
@@ -534,7 +597,7 @@
       font-family: var(--fuente-elegante);
       font-size: 1.15rem;
       line-height: 1.9;
-      color: rgba(240,232,213,0.7);
+      color: var(--texto-gris);     /* Gris cálido sobre fondo blanco */
       max-width: 600px;
     }
 
@@ -545,7 +608,7 @@
        y qué tamaño tiene cada una
     ============================================= */
     #historia {
-      background: var(--oscuro);
+      background: #ffffff;
     }
     .historia-grid {
       display: grid;
@@ -611,7 +674,6 @@
       border-left: 2px solid var(--dorado);
     }
 
-    /* Pestañas: Misión / Visión / Historia */
     .tabs {
       display: flex;
       gap: 0;
@@ -622,7 +684,7 @@
       background: none;
       border: none;
       border-bottom: 2px solid transparent;
-      color: rgba(240,232,213,0.4);
+      color: rgba(90,78,58,0.4);   /* Gris cálido oscuro */
       font-family: var(--fuente-cuerpo);
       font-size: 0.65rem;
       letter-spacing: 3px;
@@ -643,7 +705,7 @@
        HABITACIONES - Grid de tarjetas
     ============================================= */
     #habitaciones {
-      background: linear-gradient(180deg, var(--oscuro) 0%, #0d0b05 100%);
+      background: #f9f6f0;   /* Crema muy suave */
     }
     .habitaciones-header {
       text-align: center;
@@ -745,14 +807,14 @@
        EXPERIENCIAS / SERVICIOS
     ============================================= */
     #experiencias {
-      background: var(--oscuro-medio);
+      background: #ffffff;
       position: relative;
     }
     #experiencias::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23a68031' fill-opacity='0.03'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40z'/%3E%3C/g%3E%3C/svg%3E");
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23a68031' fill-opacity='0.04'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40z'/%3E%3C/g%3E%3C/svg%3E");
       pointer-events: none;
     }
 
@@ -769,16 +831,17 @@
       align-items: end;
       margin-bottom: 70px;
     }
+    .exp-header .seccion-descripcion { color: var(--texto-gris); }
 
     .exp-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
-      background: rgba(166,128,49,0.1);
+      background: rgba(166,128,49,0.15);
     }
 
     .exp-item {
-      background: var(--oscuro-medio);
+      background: #ffffff;
       padding: 50px 40px;
       text-align: center;
       transition: var(--transicion);
@@ -792,11 +855,11 @@
       left: 0;
       width: 100%;
       height: 0;
-      background: linear-gradient(to top, rgba(166,128,49,0.08), transparent);
+      background: linear-gradient(to top, rgba(166,128,49,0.06), transparent);
       transition: height 0.4s ease;
     }
     .exp-item:hover::before { height: 100%; }
-    .exp-item:hover { transform: translateY(-4px); }
+    .exp-item:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(166,128,49,0.1); }
 
     .exp-icono {
       font-size: 2.8rem;
@@ -807,7 +870,7 @@
       font-family: var(--fuente-titulo);
       font-size: 0.9rem;
       letter-spacing: 2px;
-      color: var(--crema);
+      color: var(--texto-oscuro);
       text-transform: uppercase;
       margin-bottom: 12px;
     }
@@ -815,7 +878,7 @@
       font-family: var(--fuente-elegante);
       font-size: 1rem;
       font-style: italic;
-      color: rgba(240,232,213,0.55);
+      color: var(--texto-gris);
       line-height: 1.7;
     }
 
@@ -823,7 +886,7 @@
        GALERÍA - Mosaico de imágenes
     ============================================= */
     #galeria {
-      background: var(--oscuro);
+      background: #f9f6f0;
       padding: 0;
     }
     .galeria-titulo-wrap {
@@ -876,7 +939,7 @@
        SECCIÓN MAPA Y CONTACTO
     ============================================= */
     #contacto {
-      background: linear-gradient(135deg, #0d0b05 0%, var(--oscuro-medio) 100%);
+      background: #ffffff;
     }
 
     .contacto-grid {
@@ -903,7 +966,7 @@
       align-items: center;
       justify-content: center;
       font-size: 1.2rem;
-      flex-shrink: 0; /* No se comprime aunque el contenedor sea pequeño */
+      flex-shrink: 0;
       color: var(--dorado);
     }
     .contacto-label {
@@ -916,11 +979,11 @@
     .contacto-valor {
       font-family: var(--fuente-elegante);
       font-size: 1.1rem;
-      color: var(--crema);
+      color: var(--texto-oscuro);
       line-height: 1.6;
     }
     .contacto-valor a {
-      color: var(--crema);
+      color: var(--texto-oscuro);
       text-decoration: none;
       transition: color 0.3s;
     }
@@ -962,21 +1025,24 @@
     }
     .form-input, .form-textarea, .form-select {
       width: 100%;
-      background: rgba(166,128,49,0.06);
-      border: 1px solid rgba(166,128,49,0.2);
+      background: #f9f6f0;           /* Crema muy suave */
+      border: 1px solid rgba(166,128,49,0.25);
       border-radius: 0;
-      color: var(--crema);
+      color: var(--texto-oscuro);    /* Texto oscuro legible */
       padding: 14px 18px;
       font-family: var(--fuente-cuerpo);
       font-size: 0.9rem;
       transition: border-color 0.3s;
       outline: none;
     }
+    .form-input::placeholder, .form-textarea::placeholder {
+      color: rgba(90,78,58,0.4);
+    }
     .form-input:focus, .form-textarea:focus, .form-select:focus {
       border-color: var(--dorado);
+      background: #ffffff;
     }
     .form-textarea { height: 120px; resize: vertical; }
-    /* Estilo del select nativo */
     .form-select { appearance: none; cursor: pointer; }
 
     .form-fila {
@@ -1058,9 +1124,9 @@
        FOOTER
     ============================================= */
     footer {
-      background: #080603;
+      background: #1a1208;    /* Footer sigue oscuro como contraste final elegante */
       padding: 80px 60px 30px;
-      border-top: 1px solid rgba(166,128,49,0.15);
+      border-top: 3px solid var(--dorado);
     }
     .footer-grid {
       display: grid;
@@ -1081,8 +1147,6 @@
       line-height: 1.7;
       margin-bottom: 24px;
     }
-
-    /* Redes sociales */
     .footer-redes {
       display: flex;
       gap: 12px;
@@ -1104,7 +1168,6 @@
       color: var(--dorado);
       background: rgba(166,128,49,0.1);
     }
-
     .footer-titulo-col {
       font-family: var(--fuente-titulo);
       font-size: 0.65rem;
@@ -1126,7 +1189,6 @@
       transition: color 0.3s;
     }
     .footer-links a:hover { color: var(--dorado); }
-
     .footer-bottom {
       border-top: 1px solid rgba(166,128,49,0.1);
       padding-top: 30px;
@@ -1174,7 +1236,7 @@
       visibility: visible;
     }
     .modal {
-      background: var(--oscuro-medio);
+      background: #ffffff;
       border: 1px solid rgba(166,128,49,0.3);
       max-width: 600px;
       width: 100%;
@@ -1182,6 +1244,7 @@
       position: relative;
       transform: translateY(30px);
       transition: transform 0.4s ease;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.15);
     }
     .modal-overlay.abierto .modal {
       transform: translateY(0);
@@ -1192,7 +1255,7 @@
       right: 20px;
       background: none;
       border: none;
-      color: rgba(240,232,213,0.4);
+      color: rgba(90,78,58,0.4);
       font-size: 1.5rem;
       cursor: pointer;
       transition: color 0.3s;
@@ -1202,7 +1265,7 @@
       font-family: var(--fuente-titulo);
       font-size: 1.8rem;
       letter-spacing: 3px;
-      color: var(--crema);
+      color: var(--texto-oscuro);
       margin-bottom: 8px;
     }
     .modal-subtitulo {
@@ -1369,10 +1432,47 @@
     </button>
   </nav>
 
-  <!-- ==========================================
-       HERO SECTION - Portada principal
-  =========================================== -->
-  <section id="hero">
+    <!-- ==========================================
+         HERO SECTION - Portada principal con Slider
+         
+         ══════════════════════════════════════════
+         📋 INSTRUCCIONES PARA VER LAS IMÁGENES
+         ══════════════════════════════════════════
+         
+         El navegador NO puede cargar imágenes locales de tu
+         computadora por razones de seguridad. Para que funcione
+         correctamente tienes DOS opciones:
+
+         ─────────────────────────────────────────
+         OPCIÓN 1 (MÁS FÁCIL): Abrir con servidor local
+         ─────────────────────────────────────────
+         1. Descarga la extensión "Live Server" en VS Code.
+            (VS Code es un editor de código gratuito: code.visualstudio.com)
+         2. Pon el archivo index.html Y TODAS las imágenes
+            (.jpeg) en la MISMA carpeta.
+         3. Haz clic derecho en index.html → "Open with Live Server"
+         4. Las imágenes aparecerán automáticamente ✅
+         
+         ─────────────────────────────────────────
+         OPCIÓN 2: Subir imágenes a internet (ImgBB)
+         ─────────────────────────────────────────
+         1. Ve a: https://imgbb.com
+         2. Haz clic en "Start Uploading"
+         3. Sube cada imagen del hotel
+         4. Copia el "Direct link" (enlace directo) de cada imagen
+         5. Reemplaza las URLs en el código donde dice:
+            src="WhatsApp_Image_2026-02-27..."
+            por el enlace que copiaste de ImgBB
+         
+         ─────────────────────────────────────────
+         SOBRE EL LOGO:
+         ─────────────────────────────────────────
+         El logo (logo.jpeg) debe estar en la misma carpeta
+         que el index.html. Si usas ImgBB, súbelo también
+         y reemplaza src="logo.jpeg" con el enlace directo.
+         ══════════════════════════════════════════
+    =========================================== -->
+    <section id="hero">
     <!-- Slider de fondo -->
     <div class="hero-slider" id="hero-slider">
       <!--
@@ -1406,6 +1506,18 @@
         <a href="#historia" class="btn-secundario">Nuestra Historia</a>
       </div>
     </div>
+
+    <!-- Flechas de navegación del slider -->
+    <button class="slider-flecha slider-flecha-izq" onclick="moverSlider(-1)" aria-label="Anterior">&#8592;</button>
+    <button class="slider-flecha slider-flecha-der" onclick="moverSlider(1)" aria-label="Siguiente">&#8594;</button>
+
+    <!-- Contador de slides -->
+    <div class="slider-contador" id="slider-contador">
+      <span id="slide-num">01</span> / 0<span id="slide-total">3</span>
+    </div>
+
+    <!-- Barra de progreso -->
+    <div class="slider-progreso" id="slider-progreso"></div>
 
     <!-- Indicador de scroll -->
     <div class="scroll-indicador">
@@ -1774,7 +1886,7 @@
             <div>
               <div class="contacto-label">Correo Electrónico</div>
               <div class="contacto-valor">
-                <a href="mailto:reservas@mayanza.com">reservas@mayanza.com</a>
+                <a href="/cdn-cgi/l/email-protection#097b6c7a6c7b7f687a4964687068677368276a6664"><span class="__cf_email__" data-cfemail="5a283f293f282c3b291a373b233b34203b74393537">[email&#160;protected]</span></a>
               </div>
             </div>
           </div>
@@ -1936,7 +2048,7 @@
         <div class="footer-titulo-col">Contacto</div>
         <ul class="footer-links">
           <li><a href="https://wa.me/50256311624">+502 5631 1624</a></li>
-          <li><a href="mailto:reservas@mayanza.com">reservas@mayanza.com</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#e29087918790948391a28f839b838c9883cc818d8f"><span class="__cf_email__" data-cfemail="225047514750544351624f435b434c58430c414d4f">[email&#160;protected]</span></a></li>
           <li><a href="#">Flores, Petén, Guatemala</a></li>
           <li><a href="#">www.mayanza.com</a></li>
         </ul>
@@ -2027,7 +2139,7 @@
        JAVASCRIPT
        Aquí va toda la lógica interactiva de la página
   =========================================== -->
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     /* ==================================================
        PRELOADER
        Cuando la página termina de cargar (window.onload),
@@ -2074,41 +2186,80 @@
     /* ==================================================
        HERO SLIDER
        Cambia automáticamente entre imágenes cada 5 segundos.
-       Pasos:
-       1. Obtenemos todos los slides
-       2. Cada 5 segundos, quitamos la clase 'activo' del slide actual
-       3. Agregamos 'activo' al siguiente slide
+       También responde a las flechas y a los puntos (dots).
     ================================================== */
     const slides = document.querySelectorAll('.hero-slide');
     let slideActual = 0;
+    let intervaloSlider;
+
+    // Actualizar el contador "01 / 03"
+    const slideNumEl = document.getElementById('slide-num');
+    const slideTotalEl = document.getElementById('slide-total');
+    if (slideTotalEl) slideTotalEl.textContent = slides.length;
 
     // Crear puntos de navegación (dots) dinámicamente
     const dotsContainer = document.getElementById('hero-dots');
     slides.forEach((_, i) => {
       const dot = document.createElement('div');
       dot.className = `hero-dot ${i === 0 ? 'activo' : ''}`;
-      dot.addEventListener('click', () => irASlide(i));
+      dot.addEventListener('click', () => {
+        clearInterval(intervaloSlider);
+        irASlide(i);
+        iniciarIntervalo();
+      });
       dotsContainer.appendChild(dot);
     });
 
+    // Barra de progreso
+    const barraProgreso = document.getElementById('slider-progreso');
+    function reiniciarProgreso() {
+      if (!barraProgreso) return;
+      barraProgreso.style.transition = 'none';
+      barraProgreso.style.width = '0%';
+      // Pequeño delay para que el navegador aplique el reset antes de animar
+      setTimeout(() => {
+        barraProgreso.style.transition = 'width 5s linear';
+        barraProgreso.style.width = '100%';
+      }, 50);
+    }
+
     function irASlide(n) {
-      // Quitar clase activo del slide y dot actuales
       slides[slideActual].classList.remove('activo');
       document.querySelectorAll('.hero-dot')[slideActual].classList.remove('activo');
 
-      // Actualizar el índice
       slideActual = n;
 
-      // Activar el nuevo slide y dot
       slides[slideActual].classList.add('activo');
       document.querySelectorAll('.hero-dot')[slideActual].classList.add('activo');
+
+      // Actualizar contador
+      if (slideNumEl) {
+        slideNumEl.textContent = String(slideActual + 1).padStart(2, '0');
+        // padStart(2,'0') convierte "1" en "01", "2" en "02", etc.
+      }
+
+      reiniciarProgreso();
     }
 
-    // Avanzar al siguiente slide cada 5 segundos
-    setInterval(() => {
-      const siguiente = (slideActual + 1) % slides.length; // % = módulo, da la vuelta al llegar al final
+    // Función para mover el slider con flechas
+    // dirección: -1 = anterior, +1 = siguiente
+    function moverSlider(direccion) {
+      clearInterval(intervaloSlider);
+      let siguiente = (slideActual + direccion + slides.length) % slides.length;
       irASlide(siguiente);
-    }, 5000);
+      iniciarIntervalo();
+    }
+
+    function iniciarIntervalo() {
+      intervaloSlider = setInterval(() => {
+        const siguiente = (slideActual + 1) % slides.length;
+        irASlide(siguiente);
+      }, 5000);
+    }
+
+    // Iniciar el slider automático
+    reiniciarProgreso();
+    iniciarIntervalo();
 
     /* ==================================================
        TABS (Pestañas) de Historia / Misión / Visión
@@ -2210,21 +2361,4 @@
     ================================================== */
     const heroContenido = document.querySelector('.hero-contenido');
     document.getElementById('hero').addEventListener('mousemove', (e) => {
-      const xRel = (e.clientX / window.innerWidth - 0.5) * 10;
-      const yRel = (e.clientY / window.innerHeight - 0.5) * 6;
-      if (heroContenido) {
-        heroContenido.style.transform = `translate(${xRel}px, ${yRel}px)`;
-      }
-    });
-    document.getElementById('hero').addEventListener('mouseleave', () => {
-      if (heroContenido) heroContenido.style.transform = '';
-    });
-  </script>
-
-</body>
-</html>
-
-
-
-
-
+      const xRel = (e.clientX / win
