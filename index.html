@@ -44,10 +44,11 @@
     @keyframes girar { to { transform: rotate(360deg); } }
 
     /* SIDE MENU */
-    .side-menu-btn { position: fixed; left: 20px; top: 50%; transform: translateY(-50%); z-index: 1100; background: rgba(26,18,8,0.85); border: 1px solid rgba(166,128,49,0.4); color: var(--dorado); padding: 12px 10px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; transition: var(--transicion); backdrop-filter: blur(8px); }
+    .side-menu-btn { position: fixed; left: 20px; top: 18px; z-index: 1100; background: rgba(26,18,8,0.85); border: 1px solid rgba(166,128,49,0.4); color: var(--dorado); padding: 10px 12px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; transition: var(--transicion); backdrop-filter: blur(8px); border-radius: 3px; }
+    nav.scrolled ~ .side-menu-btn, body .side-menu-btn { top: 18px; }
     .side-menu-btn:hover { background: var(--dorado); color: #fff; }
-    .side-menu-btn span.bar { width: 20px; height: 1px; background: currentColor; display: block; }
-    .side-menu-btn .menu-label { font-size: 0.5rem; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+    .side-menu-btn span.bar { width: 20px; height: 1.5px; background: currentColor; display: block; }
+    .side-menu-btn .menu-label { font-size: 0.48rem; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
     .side-menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1200; opacity: 0; visibility: hidden; transition: var(--transicion); }
     .side-menu-overlay.abierto { opacity: 1; visibility: visible; }
     .side-menu { position: fixed; left: 0; top: 0; bottom: 0; width: 360px; background: #1a1208; z-index: 1300; transform: translateX(-100%); transition: transform 0.5s cubic-bezier(0.25,0.8,0.25,1); overflow-y: auto; border-right: 1px solid rgba(166,128,49,0.2); }
@@ -84,33 +85,33 @@
     nav.scrolled .nav-mapa { color: var(--texto-gris) !important; border-color: rgba(166,128,49,0.3) !important; }
     .nav-mapa:hover { color: var(--dorado) !important; border-color: var(--dorado) !important; }
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .nav-logo img { height: 52px; filter: drop-shadow(0 0 8px rgba(166,128,49,0.5)); }
+    .nav-logo img { height: 68px; filter: drop-shadow(0 0 8px rgba(166,128,49,0.5)); }
     .nav-logo-texto { font-family: var(--fuente-titulo); font-size: 0.7rem; letter-spacing: 3px; color: var(--dorado); text-transform: uppercase; line-height: 1.4; }
     .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
     .hamburger span { width: 26px; height: 1px; background: var(--dorado); transition: var(--transicion); }
 
     /* BOOKING BAR - Fixed sticky below hero */
-    .booking-bar { position: sticky; top: 60px; z-index: 900; background: rgba(26,18,8,0.97); backdrop-filter: blur(10px); border-bottom: 2px solid var(--dorado); padding: 0; }
+    .booking-bar { position: sticky; top: 60px; z-index: 900; background: #fff; border-top: 3px solid var(--dorado); border-bottom: 1px solid rgba(166,128,49,0.2); padding: 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
     .booking-bar-inner { display: flex; align-items: stretch; max-width: 100%; }
-    .booking-field { flex: 1; position: relative; border-right: 1px solid rgba(166,128,49,0.2); }
+    .booking-field { flex: 1; position: relative; border-right: 1px solid rgba(166,128,49,0.15); }
     .booking-field:last-child { border-right: none; }
     .booking-btn-trigger { width: 100%; background: none; border: none; padding: 14px 20px; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; transition: background 0.3s; }
-    .booking-btn-trigger:hover { background: rgba(166,128,49,0.08); }
-    .booking-field-label { font-size: 0.52rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(166,128,49,0.7); font-family: var(--fuente-cuerpo); }
-    .booking-field-value { font-size: 0.82rem; color: var(--texto-claro); font-family: var(--fuente-elegante); font-style: italic; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px; }
-    .booking-field-icon { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: rgba(166,128,49,0.5); font-size: 0.7rem; }
+    .booking-btn-trigger:hover { background: rgba(166,128,49,0.05); }
+    .booking-field-label { font-size: 0.52rem; letter-spacing: 3px; text-transform: uppercase; color: var(--dorado); font-family: var(--fuente-cuerpo); font-weight: 500; }
+    .booking-field-value { font-size: 0.85rem; color: #3a2e1a; font-family: var(--fuente-elegante); font-style: italic; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px; }
+    .booking-field-icon { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--dorado); font-size: 0.7rem; }
     .booking-dropdown { position: absolute; top: 100%; left: 0; min-width: 320px; background: #fff; border: 1px solid rgba(166,128,49,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.15); z-index: 200; display: none; }
     .booking-dropdown.abierto { display: block; }
     .booking-dropdown-header { padding: 20px 24px 12px; border-bottom: 1px solid rgba(166,128,49,0.1); display: flex; justify-content: space-between; align-items: center; }
     .booking-dropdown-title { font-family: var(--fuente-titulo); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--texto-oscuro); }
-    .booking-dropdown-close { background: none; border: none; color: var(--texto-gris); font-size: 1.1rem; cursor: pointer; transition: color 0.3s; padding: 4px 8px; }
-    .booking-dropdown-close:hover { color: var(--dorado); }
+    .booking-dropdown-close { background: none; border: 1px solid rgba(166,128,49,0.3); color: var(--texto-gris); font-size: 1rem; cursor: pointer; transition: all 0.3s; padding: 4px 10px; border-radius: 2px; }
+    .booking-dropdown-close:hover { color: #fff; background: var(--dorado); border-color: var(--dorado); }
     .booking-dropdown-body { padding: 20px 24px; }
     .booking-dates-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .booking-date-group label { display: block; font-size: 0.55rem; letter-spacing: 3px; text-transform: uppercase; color: var(--dorado); margin-bottom: 6px; }
-    .booking-date-group input { width: 100%; border: 1px solid rgba(166,128,49,0.25); background: var(--fondo-seccion); padding: 10px 14px; font-family: var(--fuente-cuerpo); font-size: 0.85rem; color: var(--texto-oscuro); outline: none; transition: border-color 0.3s; }
-    .booking-date-group input:focus { border-color: var(--dorado); }
+    .booking-date-group input { width: 100%; border: 1px solid rgba(166,128,49,0.35); background: #faf8f4; padding: 10px 14px; font-family: var(--fuente-cuerpo); font-size: 0.9rem; color: #1a1208; outline: none; transition: border-color 0.3s; border-radius: 2px; }
+    .booking-date-group input:focus { border-color: var(--dorado); background: #fff; }
     .huespedes-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(166,128,49,0.08); }
     .huespedes-row:last-child { border-bottom: none; }
     .huespedes-info .hs-label { font-size: 0.8rem; color: var(--texto-oscuro); font-weight: 500; }
@@ -141,7 +142,7 @@
     .hero-slider { position: absolute; inset: 0; z-index: 0; }
     .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transform: scale(1.08); transition: opacity 1.5s ease, transform 8s ease; }
     .hero-slide.activo { opacity: 1; transform: scale(1); }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26,18,8,0.75) 0%, rgba(26,18,8,0.35) 50%, rgba(26,18,8,0.65) 100%); z-index: 1; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,18,8,0.6) 0%, rgba(26,18,8,0.2) 30%, rgba(26,18,8,0.35) 70%, rgba(26,18,8,0.65) 100%); z-index: 1; }
     .hero-pattern { position: absolute; inset: 0; z-index: 2; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a68031' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
     .hero-contenido { position: relative; z-index: 3; text-align: center; padding: 20px; max-width: 900px; }
     .hero-pretitulo { font-family: var(--fuente-cuerpo); font-size: 0.65rem; letter-spacing: 8px; color: var(--dorado); text-transform: uppercase; margin-bottom: 24px; opacity: 0; animation: aparecer-arriba 1s ease 0.5s forwards; }
@@ -257,8 +258,8 @@
     .modal-hab-body { padding: 40px; }
     .modal-hab-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
     .modal-hab-titulo { font-family: var(--fuente-titulo); font-size: 1.8rem; letter-spacing: 2px; color: var(--texto-oscuro); }
-    .modal-hab-close { position: absolute; top: 16px; right: 16px; background: rgba(0,0,0,0.5); border: none; color: #fff; width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; transition: background 0.3s; display: flex; align-items: center; justify-content: center; }
-    .modal-hab-close:hover { background: var(--rojo-carmesi); }
+    .modal-hab-close { position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.95); border: 1px solid rgba(166,128,49,0.4); color: #1a1208; width: 38px; height: 38px; font-size: 1.1rem; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; z-index: 100; border-radius: 2px; font-weight: bold; }
+    .modal-hab-close:hover { background: var(--dorado); color: #fff; border-color: var(--dorado); }
     .modal-hab-amenidades { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 20px 0; }
     .amenidad-item { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--texto-gris); }
     .amenidad-item svg { width: 16px; height: 16px; color: var(--dorado); flex-shrink: 0; }
@@ -289,7 +290,7 @@
     .img-lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.97); z-index: 3000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: var(--transicion); }
     .img-lightbox.abierto { opacity: 1; visibility: visible; }
     .img-lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; }
-    .img-lightbox-close { position: absolute; top: 24px; right: 24px; background: none; border: 1px solid rgba(255,255,255,0.3); color: #fff; width: 44px; height: 44px; font-size: 1.3rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transicion); }
+    .img-lightbox-close { position: fixed; top: 24px; right: 24px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.6); color: #fff; width: 48px; height: 48px; font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transicion); z-index: 10000; border-radius: 2px; }
     .img-lightbox-close:hover { background: var(--dorado); border-color: var(--dorado); }
 
     /* PAQUETES */
@@ -438,8 +439,8 @@
     .modal-overlay.abierto { opacity: 1; visibility: visible; }
     .modal { background: #fff; border: 1px solid rgba(166,128,49,0.3); max-width: 680px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 50px; position: relative; transform: translateY(30px); transition: transform 0.4s ease; box-shadow: 0 30px 80px rgba(0,0,0,0.2); }
     .modal-overlay.abierto .modal { transform: translateY(0); }
-    .modal-cerrar { position: absolute; top: 18px; right: 18px; background: none; border: none; color: rgba(90,78,58,0.4); font-size: 1.5rem; cursor: pointer; transition: color 0.3s; }
-    .modal-cerrar:hover { color: var(--dorado); }
+    .modal-cerrar { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.9); border: 1px solid rgba(166,128,49,0.35); color: #3a2e1a; font-size: 1.2rem; cursor: pointer; transition: all 0.3s; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; z-index: 10; border-radius: 2px; font-weight: bold; }
+    .modal-cerrar:hover { background: var(--dorado); color: #fff; border-color: var(--dorado); }
     .modal-titulo { font-family: var(--fuente-titulo); font-size: 1.7rem; letter-spacing: 3px; color: var(--texto-oscuro); margin-bottom: 6px; }
     .modal-subtitulo { font-family: var(--fuente-elegante); font-style: italic; color: var(--dorado); margin-bottom: 28px; }
     .modal-tarifas { margin-bottom: 20px; }
@@ -542,9 +543,10 @@
       .info-hotel-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
-
 <!-- PRELOADER -->
 <div id="preloader">
   <div class="loader-glifo"></div>
@@ -899,7 +901,7 @@
             <div class="hab-descripcion">Confort y elegancia maya para el viajero individual, con todos los servicios.</div>
             <div class="hab-acciones">
               <button class="hab-btn-ver" onclick="event.stopPropagation(); abrirHabitacion(0)">Ver detalles</button>
-              <button class="hab-btn-reservar" onclick="event.stopPropagation(); abrirModal(event)">Reservar</button>
+              <button class="hab-btn-reservar" onclick="event.stopPropagation(); abrirModalConSuite('Habitación Simple ($100/noche)', event)">Reservar</button>
             </div>
           </div>
         </div>
@@ -912,7 +914,7 @@
             <div class="hab-descripcion">Inmersión total en la arquitectura maya con amenidades de primer nivel.</div>
             <div class="hab-acciones">
               <button class="hab-btn-ver" onclick="event.stopPropagation(); abrirHabitacion(1)">Ver detalles</button>
-              <button class="hab-btn-reservar" onclick="event.stopPropagation(); abrirModal(event)">Reservar</button>
+              <button class="hab-btn-reservar" onclick="event.stopPropagation(); abrirModalConSuite('Suite Ancestral ($200/noche)', event)">Reservar</button>
             </div>
           </div>
         </div>
@@ -925,7 +927,7 @@
             <div class="hab-descripcion">Techo de palma natural, cama king y terraza panorámica al atardecer.</div>
             <div class="hab-acciones">
               <button class="hab-btn-ver" onclick="event.stopPropagation(); abrirHabitacion(2)">Ver detalles</button>
-              <button class="hab-btn-reservar" onclick="event.stopPropagation(); abrirModal(event)">Reservar</button>
+              <button class="hab-btn-reservar" onclick="event.stopPropagation(); abrirModalConSuite('Suite Quetzal ($250/noche)', event)">Reservar</button>
             </div>
           </div>
         </div>
@@ -941,7 +943,7 @@
             <div class="hab-descripcion">Decorada con glifos tallados a mano y textiles de Chichicastenango.</div>
             <div class="hab-acciones">
               <button class="hab-btn-ver" onclick="event.stopPropagation(); abrirHabitacion(3)">Ver detalles</button>
-              <button class="hab-btn-reservar" onclick="event.stopPropagation(); abrirModal(event)">Reservar</button>
+              <button class="hab-btn-reservar" onclick="event.stopPropagation(); abrirModalConSuite('Suite Ixchel ($200/noche)', event)">Reservar</button>
             </div>
           </div>
         </div>
@@ -954,7 +956,7 @@
             <div class="hab-descripcion">Ambiente íntimo con bañera de inmersión y vistas a jardines tropicales.</div>
             <div class="hab-acciones">
               <button class="hab-btn-ver" onclick="event.stopPropagation(); abrirHabitacion(4)">Ver detalles</button>
-              <button class="hab-btn-reservar" onclick="event.stopPropagation(); abrirModal(event)">Reservar</button>
+              <button class="hab-btn-reservar" onclick="event.stopPropagation(); abrirModalConSuite('Suite Kukulkán ($220/noche)', event)">Reservar</button>
             </div>
           </div>
         </div>
@@ -967,7 +969,7 @@
             <div class="hab-descripcion">Un recorrido por el calendario maya con arte sacro en cada rincón.</div>
             <div class="hab-acciones">
               <button class="hab-btn-ver" onclick="event.stopPropagation(); abrirHabitacion(5)">Ver detalles</button>
-              <button class="hab-btn-reservar" onclick="event.stopPropagation(); abrirModal(event)">Reservar</button>
+              <button class="hab-btn-reservar" onclick="event.stopPropagation(); abrirModalConSuite('Suite Tzolkin ($230/noche)', event)">Reservar</button>
             </div>
           </div>
         </div>
@@ -1466,7 +1468,7 @@
           </div>
           <div>
             <div class="contacto-label">Correo Electrónico</div>
-            <div class="contacto-valor"><a href="mailto:reservas@mayanzagrandhotels.com">reservas@mayanzagrandhotels.com</a></div>
+            <div class="contacto-valor"><a href="/cdn-cgi/l/email-protection#a0d2c5d3c5d2d6c1d3e0cdc1d9c1cedac1c7d2c1cec4c8cfd4c5ccd38ec3cfcd"><span class="__cf_email__" data-cfemail="f88a9d8b9d8a8e998bb8959981999682999f8a99969c90978c9d948bd69b9795">[email&#160;protected]</span></a></div>
           </div>
         </div>
         <div class="contacto-info-item">
@@ -1596,7 +1598,7 @@
       <div class="footer-titulo-col">Contacto</div>
       <ul class="footer-links">
         <li><a href="https://wa.me/50256311624">+502 5631 1624</a></li>
-        <li><a href="mailto:reservas@mayanzagrandhotels.com">reservas@mayanzagrandhotels.com</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#b4c6d1c7d1c6c2d5c7f4d9d5cdd5daced5d3c6d5dad0dcdbc0d1d8c79ad7dbd9"><span class="__cf_email__" data-cfemail="dba9bea8bea9adbaa89bb6baa2bab5a1babca9bab5bfb3b4afbeb7a8f5b8b4b6">[email&#160;protected]</span></a></li>
         <li><a href="#contacto">Flores, Petén, Guatemala</a></li>
         <li><a href="#" onclick="abrirModal(event)">Reservar ahora</a></li>
       </ul>
@@ -1697,17 +1699,83 @@
             <input type="date" id="m-checkout" class="form-input" required>
           </div>
         </div>
+        <!-- Huéspedes -->
         <div class="form-grupo">
-          <label class="form-label">Suite de interés</label>
-          <select id="m-suite" class="form-select form-input">
-            <option value="">Selecciona tu suite</option>
-            <option value="simple">Habitación Simple — $100/noche</option>
-            <option value="doble">Habitación Doble — $200/noche</option>
-            <option value="ancestral">Suite Ancestral — $200/noche</option>
-            <option value="quetzal">Suite Quetzal — $250/noche</option>
-            <option value="ixchel">Suite Ixchel — $150/noche (corporativa)</option>
-            <option value="tzolkin">Suite Tzolkin — $200/noche</option>
+          <label class="form-label">Huéspedes</label>
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;">
+            <div style="border:1px solid rgba(166,128,49,0.3); background:#faf8f4; padding:10px 12px; display:flex; align-items:center; justify-content:space-between; border-radius:2px;">
+              <span style="font-size:0.75rem; color:#3a2e1a;">Adultos</span>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <button type="button" onclick="cambiarModalContador('madultos',-1)" style="background:none;border:1px solid rgba(166,128,49,0.4);color:var(--dorado);width:22px;height:22px;cursor:pointer;font-size:0.9rem;display:flex;align-items:center;justify-content:center;border-radius:2px;">−</button>
+                <span id="cnt-madultos" style="font-family:var(--fuente-titulo);font-size:0.9rem;color:#1a1208;min-width:16px;text-align:center;">1</span>
+                <button type="button" onclick="cambiarModalContador('madultos',1)" style="background:none;border:1px solid rgba(166,128,49,0.4);color:var(--dorado);width:22px;height:22px;cursor:pointer;font-size:0.9rem;display:flex;align-items:center;justify-content:center;border-radius:2px;">+</button>
+              </div>
+            </div>
+            <div style="border:1px solid rgba(166,128,49,0.3); background:#faf8f4; padding:10px 12px; display:flex; align-items:center; justify-content:space-between; border-radius:2px;">
+              <span style="font-size:0.75rem; color:#3a2e1a;">Niños</span>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <button type="button" onclick="cambiarModalContador('mninos',-1)" style="background:none;border:1px solid rgba(166,128,49,0.4);color:var(--dorado);width:22px;height:22px;cursor:pointer;font-size:0.9rem;display:flex;align-items:center;justify-content:center;border-radius:2px;">−</button>
+                <span id="cnt-mninos" style="font-family:var(--fuente-titulo);font-size:0.9rem;color:#1a1208;min-width:16px;text-align:center;">0</span>
+                <button type="button" onclick="cambiarModalContador('mninos',1)" style="background:none;border:1px solid rgba(166,128,49,0.4);color:var(--dorado);width:22px;height:22px;cursor:pointer;font-size:0.9rem;display:flex;align-items:center;justify-content:center;border-radius:2px;">+</button>
+              </div>
+            </div>
+            <div style="border:1px solid rgba(166,128,49,0.3); background:#faf8f4; padding:10px 12px; display:flex; align-items:center; justify-content:space-between; border-radius:2px;">
+              <span style="font-size:0.75rem; color:#3a2e1a;">Hab.</span>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <button type="button" onclick="cambiarModalContador('mhabs',-1)" style="background:none;border:1px solid rgba(166,128,49,0.4);color:var(--dorado);width:22px;height:22px;cursor:pointer;font-size:0.9rem;display:flex;align-items:center;justify-content:center;border-radius:2px;">−</button>
+                <span id="cnt-mhabs" style="font-family:var(--fuente-titulo);font-size:0.9rem;color:#1a1208;min-width:16px;text-align:center;">1</span>
+                <button type="button" onclick="cambiarModalContador('mhabs',1)" style="background:none;border:1px solid rgba(166,128,49,0.4);color:var(--dorado);width:22px;height:22px;cursor:pointer;font-size:0.9rem;display:flex;align-items:center;justify-content:center;border-radius:2px;">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Suite de interés — selección visual -->
+        <div class="form-grupo">
+          <label class="form-label">Suite de interés <span style="color:var(--dorado);">*</span></label>
+          <input type="hidden" id="m-suite" required>
+          <div id="suite-selector" style="display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-top:4px;">
+            <div class="suite-opt" data-val="Habitación Simple ($100/noche)" onclick="seleccionarSuiteModal(this)" style="border:1px solid rgba(166,128,49,0.3); padding:10px 12px; cursor:pointer; transition:all 0.2s; border-radius:2px; background:#faf8f4;">
+              <div style="font-family:var(--fuente-titulo);font-size:0.68rem;letter-spacing:1px;color:#1a1208;">Hab. Simple</div>
+              <div style="font-size:0.72rem;color:var(--dorado);margin-top:2px;">$100/noche</div>
+            </div>
+            <div class="suite-opt" data-val="Habitación Doble ($200/noche)" onclick="seleccionarSuiteModal(this)" style="border:1px solid rgba(166,128,49,0.3); padding:10px 12px; cursor:pointer; transition:all 0.2s; border-radius:2px; background:#faf8f4;">
+              <div style="font-family:var(--fuente-titulo);font-size:0.68rem;letter-spacing:1px;color:#1a1208;">Hab. Doble</div>
+              <div style="font-size:0.72rem;color:var(--dorado);margin-top:2px;">$200/noche</div>
+            </div>
+            <div class="suite-opt" data-val="Suite Ancestral ($200/noche)" onclick="seleccionarSuiteModal(this)" style="border:1px solid rgba(166,128,49,0.3); padding:10px 12px; cursor:pointer; transition:all 0.2s; border-radius:2px; background:#faf8f4;">
+              <div style="font-family:var(--fuente-titulo);font-size:0.68rem;letter-spacing:1px;color:#1a1208;">Suite Ancestral</div>
+              <div style="font-size:0.72rem;color:var(--dorado);margin-top:2px;">$200/noche</div>
+            </div>
+            <div class="suite-opt" data-val="Suite Quetzal ($250/noche)" onclick="seleccionarSuiteModal(this)" style="border:1px solid rgba(166,128,49,0.3); padding:10px 12px; cursor:pointer; transition:all 0.2s; border-radius:2px; background:#faf8f4;">
+              <div style="font-family:var(--fuente-titulo);font-size:0.68rem;letter-spacing:1px;color:#1a1208;">Suite Quetzal</div>
+              <div style="font-size:0.72rem;color:var(--dorado);margin-top:2px;">$250/noche</div>
+            </div>
+            <div class="suite-opt" data-val="Suite Ixchel ($200/noche)" onclick="seleccionarSuiteModal(this)" style="border:1px solid rgba(166,128,49,0.3); padding:10px 12px; cursor:pointer; transition:all 0.2s; border-radius:2px; background:#faf8f4;">
+              <div style="font-family:var(--fuente-titulo);font-size:0.68rem;letter-spacing:1px;color:#1a1208;">Suite Ixchel</div>
+              <div style="font-size:0.72rem;color:var(--dorado);margin-top:2px;">$200/noche</div>
+            </div>
+            <div class="suite-opt" data-val="Suite Tzolkin ($230/noche)" onclick="seleccionarSuiteModal(this)" style="border:1px solid rgba(166,128,49,0.3); padding:10px 12px; cursor:pointer; transition:all 0.2s; border-radius:2px; background:#faf8f4;">
+              <div style="font-family:var(--fuente-titulo);font-size:0.68rem;letter-spacing:1px;color:#1a1208;">Suite Tzolkin</div>
+              <div style="font-size:0.72rem;color:var(--dorado);margin-top:2px;">$230/noche</div>
+            </div>
+          </div>
+          <p id="suite-error" style="display:none;color:#c0392b;font-size:0.72rem;margin-top:6px;">Por favor selecciona una suite</p>
+        </div>
+        <!-- Paquete opcional -->
+        <div class="form-grupo">
+          <label class="form-label">Paquete especial <span style="font-size:0.65rem;color:var(--texto-gris);font-weight:300;">(opcional)</span></label>
+          <select id="m-paquete" class="form-select form-input" style="background:#faf8f4;color:#1a1208;border:1px solid rgba(166,128,49,0.35);">
+            <option value="">Sin paquete — solo hospedaje</option>
+            <option value="Escapada Maya ($250/pareja, 2 noches)">🏛 Escapada Maya — $250/pareja (2 noches + desayuno + cena)</option>
+            <option value="Esencia Ancestral ($455/pareja, 3 noches)">🌿 Esencia Ancestral — $455/pareja (3 noches + spa + tours)</option>
+            <option value="Lujo Natural ($565/pareja, 3 noches)">✨ Lujo Natural — $565/pareja (suite premium + todo incluido)</option>
+            <option value="Corporativo Ejecutivo ($372, 2 personas)">💼 Corporativo Ejecutivo — $372 (sala conferencias + traslados)</option>
+            <option value="Todo Incluido Light ($42 p.p./día)">🍽 Todo Incluido Light — $42/persona/día</option>
           </select>
+        </div>
+        <div class="form-grupo">
+          <label class="form-label">Notas o peticiones especiales <span style="font-size:0.65rem;color:var(--texto-gris);font-weight:300;">(opcional)</span></label>
+          <textarea id="m-notas" class="form-input" rows="2" placeholder="Alergias, ocasión especial, preferencias..." style="resize:vertical;font-family:var(--fuente-cuerpo);font-size:0.85rem;"></textarea>
         </div>
         <br>
         <button type="submit" class="btn-primario" style="width:100%; clip-path:none;">Confirmar Reserva</button>
@@ -1717,6 +1785,9 @@
       <div class="modal-exito-icono">✦</div>
       <div class="modal-titulo" style="margin-bottom:10px;">¡Reserva Confirmada!</div>
       <p class="modal-exito-texto" id="modal-exito-texto">Gracias por elegir Mayanza Grand Hotels. Nuestro equipo te contactará pronto.</p>
+      <div id="emailjs-config-note" style="background:#fff8e1;border:1px solid #f0c040;padding:10px 14px;margin:12px 0;border-radius:3px;font-size:0.72rem;color:#5a4000;line-height:1.6;display:none;">
+        <strong>⚙️ Nota técnica:</strong> Para activar el envío de emails automático a <strong>mayanzahotels@gmail.com</strong> y al cliente, configura EmailJS en <a href="https://www.emailjs.com" target="_blank" style="color:var(--dorado);">emailjs.com</a> y reemplaza <code>YOUR_PUBLIC_KEY</code>, <code>YOUR_SERVICE_ID</code> y <code>YOUR_TEMPLATE_ID</code> en el script del sitio.
+      </div>
       <div class="qr-container">
         <p style="font-size:0.6rem; letter-spacing:3px; text-transform:uppercase; color:var(--dorado); margin-bottom:12px; font-family:var(--fuente-cuerpo);">Código de Reservación</p>
         <div class="qr-code" id="qr-code-display">
@@ -1765,16 +1836,16 @@
       <div class="modal-hab-amenidades" id="mh-amenidades"></div>
       <div class="modal-hab-precios" id="mh-precios"></div>
       <div style="display:flex; gap:12px; margin-top:20px;">
-        <button class="btn-primario" onclick="cerrarHabitacion(); abrirModal({preventDefault:()=>{}})" style="flex:1; clip-path:none; text-align:center;">Reservar esta Suite</button>
+        <button class="btn-primario" onclick="cerrarHabitacion(); abrirModalConSuiteDesdeHab()" style="flex:1; clip-path:none; text-align:center;">Reservar esta Suite</button>
       </div>
     </div>
   </div>
 </div>
 
 <!-- LIGHTBOX -->
-<div class="img-lightbox" id="img-lightbox" onclick="cerrarLightbox()">
-  <img id="lightbox-img" src="" alt="">
-  <button class="img-lightbox-close" onclick="cerrarLightbox()">✕</button>
+<div class="img-lightbox" id="img-lightbox" onclick="if(event.target===this)cerrarLightbox()">
+  <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
+  <button class="img-lightbox-close" onclick="event.stopPropagation();cerrarLightbox()" title="Cerrar">✕</button>
 </div>
 
 <!-- MODAL TÉRMINOS -->
@@ -1798,7 +1869,7 @@
       <h4>6. Privacidad</h4>
       <p>Los datos personales proporcionados durante la reserva son tratados con estricta confidencialidad y únicamente para fines de gestión de la estadía, en cumplimiento con las leyes guatemaltecas de protección de datos.</p>
       <br>
-      <p style="font-size:0.75rem; color:var(--texto-gris);">Última actualización: Enero 2025. Para consultas: reservas@mayanzagrandhotels.com</p>
+      <p style="font-size:0.75rem; color:var(--texto-gris);">Última actualización: Enero 2025. Para consultas: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="106275637562667163507d7169717e6a717762717e74787f64757c633e737f7d">[email&#160;protected]</a></p>
     </div>
   </div>
 </div>
@@ -1820,7 +1891,7 @@
       <h4>Jurisdicción</h4>
       <p>Cualquier disputa relacionada con el uso de este sitio web o los servicios del hotel se regirá por las leyes de Guatemala y se someterá a la jurisdicción de los tribunales competentes de la República de Guatemala.</p>
       <h4>Contacto</h4>
-      <p>Para cualquier consulta legal: reservas@mayanzagrandhotels.com | +502 5631 1624</p>
+      <p>Para cualquier consulta legal: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="eb998e988e999d8a98ab868a928a85918a8c998a858f83849f8e8798c5888486">[email&#160;protected]</a> | +502 5631 1624</p>
       <br>
       <p style="font-size:0.75rem; color:var(--texto-gris);">© 2025 Mayanza Grand Hotels. Todos los derechos reservados.</p>
     </div>
@@ -1862,7 +1933,7 @@
 <!-- TOAST -->
 <div class="toast" id="toast">✦ Mensaje enviado exitosamente</div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // PRELOADER
 function ocultarPreloader() { var el = document.getElementById("preloader"); if (el) el.style.display = "none"; }
 document.addEventListener("DOMContentLoaded", function() { setTimeout(ocultarPreloader, 300); });
@@ -2046,7 +2117,67 @@ function abrirGaleriaExp(tipo) {
 
 // MODAL RESERVA
 function abrirModal(event) { if (event && event.preventDefault) event.preventDefault(); document.getElementById('modal-reserva').classList.add('abierto'); document.body.style.overflow = 'hidden'; }
-function cerrarModal() { document.getElementById('modal-reserva').classList.remove('abierto'); document.body.style.overflow = ''; setTimeout(() => { document.getElementById('modal-form').style.display = 'block'; document.getElementById('modal-exito').classList.remove('visible'); }, 400); }
+
+function abrirModalConSuite(suiteVal, event) {
+  if (event && event.preventDefault) event.preventDefault();
+  abrirModal(event);
+  // Pre-seleccionar la suite después de un pequeño delay para que el modal esté visible
+  setTimeout(() => {
+    const opts = document.querySelectorAll('.suite-opt');
+    opts.forEach(o => {
+      o.style.border = '1px solid rgba(166,128,49,0.3)';
+      o.style.background = '#faf8f4';
+      o.querySelector('div:first-child').style.color = '#1a1208';
+    });
+    opts.forEach(o => {
+      if (o.dataset.val === suiteVal) {
+        o.style.border = '2px solid var(--dorado)';
+        o.style.background = 'rgba(166,128,49,0.08)';
+        o.querySelector('div:first-child').style.color = 'var(--dorado)';
+        document.getElementById('m-suite').value = suiteVal;
+        o.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  }, 300);
+}
+
+let habSeleccionadaNombre = '';
+function abrirModalConSuiteDesdeHab() {
+  // Obtener el nombre de la habitación actualmente abierta en el modal
+  const nombre = document.getElementById('mh-titulo').textContent;
+  // Mapear nombres a valores del selector
+  const mapaHabSuite = {
+    'Habitación Simple': 'Habitación Simple ($100/noche)',
+    'Suite Ancestral': 'Suite Ancestral ($200/noche)',
+    'Suite Quetzal': 'Suite Quetzal ($250/noche)',
+    'Suite Ixchel': 'Suite Ixchel ($200/noche)',
+    'Suite Kukulkán': 'Suite Kukulkán ($220/noche)',
+    'Suite Tzolkin': 'Suite Tzolkin ($230/noche)'
+  };
+  const suiteVal = mapaHabSuite[nombre] || nombre;
+  abrirModalConSuite(suiteVal, null);
+}
+function cerrarModal() {
+  document.getElementById('modal-reserva').classList.remove('abierto');
+  document.body.style.overflow = '';
+  setTimeout(() => {
+    document.getElementById('modal-form').style.display = 'block';
+    document.getElementById('modal-exito').classList.remove('visible');
+    // Limpiar suite seleccionada
+    document.querySelectorAll('.suite-opt').forEach(o => {
+      o.style.border = '1px solid rgba(166,128,49,0.3)';
+      o.style.background = '#faf8f4';
+      o.querySelector('div:first-child').style.color = '#1a1208';
+    });
+    document.getElementById('m-suite').value = '';
+    document.getElementById('suite-error').style.display = 'none';
+    // Reset contadores
+    mContadores.madultos = 1; mContadores.mninos = 0; mContadores.mhabs = 1;
+    document.getElementById('cnt-madultos').textContent = '1';
+    document.getElementById('cnt-mninos').textContent = '0';
+    document.getElementById('cnt-mhabs').textContent = '1';
+  }, 400);
+}
 document.getElementById('modal-reserva').addEventListener('click', (e) => { if (e.target === document.getElementById('modal-reserva')) cerrarModal(); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { cerrarModal(); cerrarHabitacion(); cerrarLightbox(); } });
 
@@ -2059,16 +2190,96 @@ function cambiarTarifaTab(btn, tabId) {
 
 function confirmarReserva(event) {
   event.preventDefault();
-  const nombres = document.getElementById('m-nombres').value;
-  const apellidos = document.getElementById('m-apellidos').value;
-  const suite = document.getElementById('m-suite').value;
-  const checkin = document.getElementById('m-checkin').value;
-  const checkout = document.getElementById('m-checkout').value;
-  const resNum = 'MGH-' + Date.now().toString().slice(-6);
+  // Validar suite seleccionada
+  const suiteVal = document.getElementById('m-suite').value;
+  if (!suiteVal) {
+    document.getElementById('suite-error').style.display = 'block';
+    document.getElementById('suite-selector').scrollIntoView({behavior:'smooth', block:'center'});
+    return;
+  }
+  document.getElementById('suite-error').style.display = 'none';
+
+  const nombres   = document.getElementById('m-nombres').value.trim();
+  const apellidos = document.getElementById('m-apellidos').value.trim();
+  const email     = document.getElementById('m-email').value.trim();
+  const tel       = document.getElementById('m-tel').value.trim();
+  const checkin   = document.getElementById('m-checkin').value;
+  const checkout  = document.getElementById('m-checkout').value;
+  const paquete   = document.getElementById('m-paquete').value || 'Sin paquete — solo hospedaje';
+  const notas     = document.getElementById('m-notas').value.trim();
+  const adultos   = document.getElementById('cnt-madultos').textContent;
+  const ninos     = document.getElementById('cnt-mninos').textContent;
+  const habs      = document.getElementById('cnt-mhabs').textContent;
+  const resNum    = 'MGH-' + Date.now().toString().slice(-6);
+
+  // Mostrar pantalla de éxito primero
   document.getElementById('modal-form').style.display = 'none';
-  document.getElementById('modal-exito-texto').textContent = `Gracias ${nombres} ${apellidos}, tu reserva ha sido confirmada. Recibirás una confirmación por email con el detalle de tu estadía en ${suite || 'la suite seleccionada'}.`;
+  document.getElementById('modal-exito-texto').innerHTML =
+    `Gracias <strong>${nombres} ${apellidos}</strong>, tu solicitud de reserva ha sido recibida.<br>
+    <span style="font-size:0.85rem;color:var(--texto-gris);">Suite: ${suiteVal} · Check-in: ${checkin || 'por definir'} · Check-out: ${checkout || 'por definir'}</span><br>
+    <span style="font-size:0.82rem;color:var(--texto-gris);">Huéspedes: ${adultos} adulto(s), ${ninos} niño(s) · Hab.: ${habs}</span>`;
   document.getElementById('qr-res-num').textContent = 'Reservación: ' + resNum + ' · Presentar en recepción';
   document.getElementById('modal-exito').classList.add('visible');
+  // Mostrar nota de configuración si EmailJS no está configurado
+  const note = document.getElementById('emailjs-config-note');
+  if (note) note.style.display = 'block';
+
+  // Enviar emails via EmailJS
+  const templateParams = {
+    to_email:     email,
+    to_name:      nombres + ' ' + apellidos,
+    from_name:    'Mayanza Grand Hotels',
+    reply_to:     'mayanzahotels@gmail.com',
+    res_num:      resNum,
+    suite:        suiteVal,
+    checkin:      checkin || 'Por confirmar',
+    checkout:     checkout || 'Por confirmar',
+    adultos:      adultos,
+    ninos:        ninos,
+    habitaciones: habs,
+    paquete:      paquete,
+    telefono:     tel || 'No proporcionado',
+    notas:        notas || 'Ninguna',
+    hotel_email:  'mayanzahotels@gmail.com'
+  };
+
+  // Inicializar EmailJS (Public Key de cuenta configurada)
+  // NOTA: Reemplazar 'YOUR_PUBLIC_KEY', 'YOUR_SERVICE_ID' y 'YOUR_TEMPLATE_ID'
+  // con las credenciales de tu cuenta en emailjs.com
+  emailjs.init('YOUR_PUBLIC_KEY');
+
+  // Email al cliente
+  emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+    .then(() => { console.log('Email al cliente enviado'); })
+    .catch((err) => { console.warn('EmailJS pendiente de configurar:', err); });
+
+  // Email a la empresa (mismo template o uno diferente)
+  const hotelParams = { ...templateParams, to_email: 'mayanzahotels@gmail.com', to_name: 'Equipo Mayanza Hotels' };
+  emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', hotelParams)
+    .then(() => { console.log('Email al hotel enviado'); })
+    .catch((err) => { console.warn('EmailJS hotel pendiente:', err); });
+}
+
+// Contadores en modal de reserva
+const mContadores = { madultos: 1, mninos: 0, mhabs: 1 };
+function cambiarModalContador(tipo, dir) {
+  const min = (tipo === 'madultos' || tipo === 'mhabs') ? 1 : 0;
+  mContadores[tipo] = Math.max(min, mContadores[tipo] + dir);
+  document.getElementById('cnt-' + tipo).textContent = mContadores[tipo];
+}
+
+// Selección visual de suite
+function seleccionarSuiteModal(el) {
+  document.querySelectorAll('.suite-opt').forEach(o => {
+    o.style.border = '1px solid rgba(166,128,49,0.3)';
+    o.style.background = '#faf8f4';
+    o.querySelector('div:first-child').style.color = '#1a1208';
+  });
+  el.style.border = '2px solid var(--dorado)';
+  el.style.background = 'rgba(166,128,49,0.08)';
+  el.querySelector('div:first-child').style.color = 'var(--dorado)';
+  document.getElementById('m-suite').value = el.dataset.val;
+  document.getElementById('suite-error').style.display = 'none';
 }
 
 // FORMULARIO CONTACTO
@@ -2089,15 +2300,20 @@ document.querySelectorAll('.reveal').forEach(el => observador.observe(el));
 
 // MODALES LEGALES
 function abrirTerminos() { document.getElementById('modal-terminos').classList.add('abierto'); document.body.style.overflow = 'hidden'; }
-function abrirAvisoLegal() { document.getElementById('modal-aviso-legal').classList.add('abierto'); document.body.style.overflow = 'hidden'; }
+function abrirAvisoLegal() { document.getElementById('modal-aviso-legal').classList.add('abierto'); document.body.style.overflow = 'hidden'
+; }
 function abrirModalValores() { document.getElementById('modal-valores').classList.add('abierto'); document.body.style.overflow = 'hidden'; }
-['modal-terminos','modal-aviso-legal','modal-valores'].forEach(id => {
-  document.getElementById(id).addEventListener('click', (e) => { if (e.target === document.getElementById(id)) { document.getElementById(id).classList.remove('abierto'); document.body.style.overflow = ''; } });
+function cerrarModalLegal(id) { document.getElementById(id).classList.remove('abierto'); document.body.style.overflow = ''; }
+
+// PARALLAX SUAVE
+const heroContenido = document.querySelector('.hero-contenido');
+document.addEventListener('mousemove', (e) => {
+  if (!heroContenido) return;
+  const x = (e.clientX / window.innerWidth - 0.5) * 10;
+  const y = (e.clientY / window.innerHeight - 0.5) * 6;
+  heroContenido.style.transform = `translate(${x}px, ${y}px)`;
 });
 
-// Set min dates
-const today = new Date().toISOString().split('T')[0];
-['bk-checkin','bk-checkout','m-checkin','m-checkout','fc-checkin','fc-checkout'].forEach(id => { const el = document.getElementById(id); if (el) el.min = today; });
 </script>
 </body>
 </html>
